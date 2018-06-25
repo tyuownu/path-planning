@@ -1,6 +1,5 @@
 function point = GeneratePoint(map, lists)
-    rows = size(map, 1);
-    cols = size(map, 2);
+    [rows, cols] = size(map);
     while true
         x = randi(rows, 1, 1);
         y = randi(cols, 1, 1);

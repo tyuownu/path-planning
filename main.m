@@ -1,7 +1,7 @@
 close all
 clear all; clc
 
-map = GenerateMap(30, 40, 50);
+map = GenerateMap(6, 10, 1);
 
 %% find all obstacle in map
 [x, y] = find(map ~= 0);
@@ -15,4 +15,4 @@ goal_point = GeneratePoint(map, [x, y]);
 %% path planning algorithm
 
 %% 1. A*(A star algorithm)
-[path, search_map] = Astar(start_point, goal_point, map);
+[paths, search_map] = Astar(start_point, goal_point, map);
