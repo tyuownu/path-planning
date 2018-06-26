@@ -1,4 +1,8 @@
 function point = GeneratePoint(map, lists)
+%  Generate random point
+%  @input map  : the input map
+%  @input lists: the obstacle lists
+
     [rows, cols] = size(map);
     while true
         x = randi(rows, 1, 1);

@@ -1,4 +1,10 @@
 function points = SurroundPoint(list, h, map)
+%  To find the surround points
+%  @input list: the input cell
+%  @input h   : the costmap to goal point
+%  @input map : the input map
+%  We can change the heuristic function
+
     %% TODO: adding weather allow diagonal travel
     [rows, cols] = size(map);
 
@@ -12,9 +18,10 @@ function points = SurroundPoint(list, h, map)
             row(i) + list(1) <= rows && ...
             col(i) + list(2) > 0 &&     ...
             col(i) + list(2) <= cols && ...
-            h(row(i) + list(1), col(i) + list(2)) > 0)
-            value = list(3) + 1 + h(list(1), list(2)) -...
-                h(row(i) + list(1), col(i) + list(2));
+            h(row(i) + list(1), col(i) + list(2)) >= 0)
+            %% value = list(3) + 1 + h(row(i) + list(1), col(i) + list(2)) -...
+            %%    h(list(1), list(2));
+            value = h(row(i)+list(1), col(i) + list(2));
             points = [points;...
                 row(i) + list(1), col(i) + list(2), value, list(1), list(2)];
         end
